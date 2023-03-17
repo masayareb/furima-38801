@@ -6,7 +6,7 @@
 | ------------------ | ------  | ------------------------ |
 | nickname           | string  | null: false              | #ニックネーム
 | email              | string  | null: false,unique: true | #メールアドレス
-| password           | string  | null: false              | #パスワード
+| encrypted_password | string  | null: false              | #パスワード
 | firstname          | string  | null: false              | #名前（全角）名字
 | lastname           | string  | null: false              | #名前(全角)名前
 | firstname_kana     | string  | null: false              | #名前カナ（全角）名字
@@ -26,11 +26,11 @@
 | -----------        | ---------- | ------------------------------ |
 | item               | string     | null: false                    | #商品名
 | content            | text       | null: false                    | #商品の詳細
-| category.id        | integer    | null: false                    | #カテゴリー
-| status.id          | integer    | null: false                    | #商品の状態
-| shipping_cost.id   | integer    | null: false                    | #配送料の負担
-| region_of_origin.id| integer    | null: false                    | #発送元の地域
-| days_to_ship.id    | integer    | null: false                    | #発送までの日数
+| category_id        | integer    | null: false                    | #カテゴリー
+| status_id          | integer    | null: false                    | #商品の状態
+| shipping_cost_id   | integer    | null: false                    | #配送料の負担
+| region_of_origin_id| integer    | null: false                    | #発送元の地域
+| days_to_ship_id    | integer    | null: false                    | #発送までの日数
 | price              | integer    | null: false                    | #価格
 | user               | references | null: false, foreign_key: true | #ユーザid
 
@@ -65,7 +65,7 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | post_code          | string     | null: false                    | #郵便番号
-| prefectures.id     | integer    | null: false                    | #都道府県
+| prefecture_id      | integer    | null: false                    | #都道府県
 | municipalities     | string     | null: false                    | #市区町村
 | address            | string     | null: false                    | #番地
 | building           | string     |                                | #建物名
@@ -76,4 +76,4 @@
 
 - belongs_to :order
 
-- belongs_to :prefectures.id
+- belongs_to :prefecture
