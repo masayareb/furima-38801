@@ -29,7 +29,7 @@
 | category_id        | integer    | null: false                    | #カテゴリー
 | status_id          | integer    | null: false                    | #商品の状態
 | shipping_cost_id   | integer    | null: false                    | #配送料の負担
-| prefecture         | integer    | null: false                    | #発送元の地域
+| prefecture_id      | integer    | null: false                    | #発送元の地域
 | days_to_ship_id    | integer    | null: false                    | #発送までの日数
 | price              | integer    | null: false                    | #価格
 | user               | references | null: false, foreign_key: true | #ユーザid
