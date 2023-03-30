@@ -61,13 +61,12 @@
           @user.valid?
           expect(@user.errors.full_messages).to include ("Password Password is invalid. Include both letters and numbers")
         end
-
+        
         it "passwordは半角英数字混合でないと登録できない_英字のみ" do
           @user.password = 'aaaaaaaa'
           @user.valid?
           expect(@user.errors.full_messages).to include ("Password Password is invalid. Include both letters and numbers")
         end
-        
           it "passwordは半角英数字混合でないと登録できない_全角" do
           @user.password = 'ａａａａａａａａａ'
           @user.valid?
