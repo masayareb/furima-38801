@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :post_code, :prefecture_id, :municipalities, :address, :building, :telephone_number, :user_id, :item_id, :token, :order_id
+  attr_accessor :post_code, :prefecture_id, :municipalities, :address, :building, :telephone_number, :user_id, :item_id, :token
 
   with_options presence: true do
     validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: "is invalid. Include hyphen(-)" }  #郵便番号
@@ -14,7 +14,7 @@ class OrderAddress
   validates :prefecture_id, numericality:{ other_than: 1 , message: "can't be blank"} #都道府県
 
   def save
-    order = Order.create(user_id: user_id,item_id: item_id,token: token)
+    order = Order.create(user_id: user_id,item_id: item_id)
     Address.create(post_code: post_code, prefecture_id: prefecture_id, municipalities: municipalities, address: address, building: building, telephone_number: telephone_number, order_id: order.id)
   end
 end
