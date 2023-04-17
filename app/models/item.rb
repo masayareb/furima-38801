@@ -1,7 +1,7 @@
 class Item < ApplicationRecord
   #アソシエーション
   belongs_to :user
-  #has_one :order
+  has_one :order
 
   #Active Storageのアソシエーション
   has_one_attached :image
@@ -15,7 +15,7 @@ class Item < ApplicationRecord
   belongs_to :days_to_ship
 
   #バリデーション
-  validates :item, presence: true
+  validates :item, presence: true 
   validates :image, presence: true
   validates :content, presence: true
   validates :category_id, numericality: { other_than: 1 , message: "can't be blank"} 
