@@ -38,6 +38,7 @@
           @user.valid?
           expect(@user.errors.full_messages).to include('Email is invalid')
         end
+        
         it "passwordが空だと登録できない" do
           @user.password = ''
           @user.valid?
